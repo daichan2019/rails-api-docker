@@ -7,6 +7,7 @@ RUN mkdir /myapp
 WORKDIR /myapp
 
 RUN apk add --no-cache alpine-sdk \
+    openssl \
     mysql-client \
     mysql-dev \
     build-base \
@@ -17,8 +18,7 @@ COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
 
 RUN gem install bundler
-RUN bundle install --jobs 4
-
+RUN bundle install
 COPY . /myapp
 
 COPY entrypoint.sh /usr/bin/
