@@ -12,6 +12,7 @@ RUN apk add --no-cache alpine-sdk \
     mysql-dev \
     build-base \
     bash \
+    vim \
     tzdata
 
 COPY Gemfile /myapp/Gemfile
